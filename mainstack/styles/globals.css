@@ -190,3 +190,26 @@ a {
 .word-analytics {
   color: #ff5403;
 }
+
+.days {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1rem;
+
+  list-style: none;
+  font-size: small;
+  font-weight: 100;
+}
+
+.days-list {
+  margin: 0.2rem;
+  border: 1px solid #eff1f6;
+  border-radius: 100px;
+  padding: 0.5rem;
+}
+
+.day-span {
+  margin: 0.61rem;
+}

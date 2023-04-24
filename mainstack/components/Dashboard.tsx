@@ -31,6 +31,20 @@ const sidebar = [
   },
 ];
 
+const days = [
+  "1 Day",
+
+  "3 Days",
+
+  "7 Days",
+
+  "30 Days",
+
+  "All Time",
+
+  "Custom Date",
+];
+
 const Dashboard = () => {
   return (
     <div>
@@ -99,6 +113,14 @@ const Dashboard = () => {
               <p className="word-analytics">view analytics</p>
             </div>
           </div>
+
+          <ul className="days">
+            {days.map((day, index) => (
+              <li className="days-list" key={index}>
+                <span className="day-span">{day}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
