@@ -111,7 +111,6 @@ a {
   flex-direction: column;
   justify-content: flex-start;
 
-  /* margin: 1rem; */
   padding: 1.5rem;
 
   border: 1px solid #eff1f6;
@@ -119,12 +118,35 @@ a {
   height: 45rem;
 }
 
+.logo {
+  margin-left: 0.75rem;
+}
+
 .sidebar-list1 {
-  margin: 1rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
   list-style: none;
+  font-size: small;
+  font-weight: 100;
 }
 
 .sidebar-list2 {
   margin: 1rem;
   list-style: none;
+}
+
+.image-title {
+  margin-right: 0.6rem;
+}
+
+.subContent {
+  margin-bottom: 2rem;
+  font-size: large;
+  font-weight: 100;
+}
+
+.firstTitle {
+  color: #ff5403;
+  font-size: larger;
+  font-weight: 600;
 }
