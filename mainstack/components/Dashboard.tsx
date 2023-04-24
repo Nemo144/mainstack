@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
+//sidebar elements in arrays to enable mapping function in JSX
 const sidebar = [
   {
     title: "Dashboard",
@@ -49,6 +50,7 @@ const Dashboard = () => {
           <ul className="sidebar-list1">
             {sidebar.map((item, index) => (
               <li key={index}>
+                {/*render image if the logoUrl exists*/}
                 {item.logoUrl && (
                   <Image
                     priority
