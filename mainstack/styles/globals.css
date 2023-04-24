@@ -105,3 +105,11 @@ a {
     color-scheme: dark;
   }
 }
+
+.logo-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin: 1rem;
+}
