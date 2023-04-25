@@ -297,26 +297,40 @@ const Dashboard = () => {
               <>
                 <p className="line-paragraph">All time</p>
                 <h1 className="line-num">500</h1>
-
-                <Line
-                  data={chartData}
-                  options={chartOptions}
-                  key={JSON.stringify(graphData.views)}
-                />
+                <div className="line-fill">
+                  <Line
+                    data={chartData}
+                    options={chartOptions}
+                    key={JSON.stringify(graphData.views)}
+                  />
+                </div>
               </>
             )}
           </div>
 
           <div className="graph-container">
             <div className="doughnut-graph1">
+              <div className="graph1">
+                <h1 className="graph1-text">Top Locations</h1>
+                <p className="graph1-p">View full reports</p>
+              </div>
               <Doughnut
                 options={chartLocationsOptions}
                 data={chartLocationsData}
+                className="dough"
               />
             </div>
 
             <div className="doughnut-graph2">
-              <Doughnut options={chartSourcesOptions} data={chartSourcesData} />
+              <div className="graph1">
+                <h1 className="graph1-text">Top Referral Sources</h1>
+                <p className="graph1-p">View full reports</p>
+              </div>
+              <Doughnut
+                options={chartSourcesOptions}
+                data={chartSourcesData}
+                className="dough"
+              />
             </div>
           </div>
         </div>

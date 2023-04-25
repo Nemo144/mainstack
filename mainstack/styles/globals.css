@@ -152,6 +152,7 @@ a {
 .owner-name {
   margin-left: 0.5rem;
   margin-top: 0.2rem;
+  font-weight: 100;
 }
 
 .owner-horiz {
@@ -203,8 +204,8 @@ a {
 .headers-analytics {
   /* margin-left: 35rem; */
   display: flex;
-  justify-content: flex-end;
-  margin-right: 1rem;
+  /* justify-content: flex-end; */
+  margin-right: 3.7rem;
 }
 
 .word-analytics {
@@ -237,6 +238,7 @@ a {
 .line-graph {
   border: 1px solid #eff1f6;
   margin: 0.45rem;
+  width: 59rem;
 }
 
 .line-word {
@@ -264,18 +266,49 @@ a {
 .graph-container {
   display: flex;
   flex-direction: row;
-  border: 1px solid #eff1f6;
-  width: 39rem;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #eff1f6; */
+  /* width: 39rem; */
   margin-left: 0.5rem;
+  padding-top: 1rem;
 }
 
 .doughnut-graph1 {
-  width: 15rem;
-  height: 20rem;
+  width: 28rem;
+  height: 15rem;
+  border: 1px solid #eff1f6;
+  margin-right: 2rem;
+  box-sizing: border-box;
+}
+
+.graph1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.graph1-text {
+  font-size: small;
+  margin-top: 1.2rem;
+  padding-left: 2rem;
+}
+
+.graph1-p {
+  color: #ff5403;
+  margin-top: 1.2rem;
+  padding-right: 2rem;
 }
 
 .doughnut-graph2 {
-  width: 15rem;
-  height: 20rem;
-  margin-left: auto;
+  width: 29rem;
+  height: 15rem;
+  margin-right: 3rem;
+  border: 1px solid #eff1f6;
+  box-sizing: border-box;
+}
+
+.dough {
+  margin-left: 5rem;
+  transform: skew(0);
 }
