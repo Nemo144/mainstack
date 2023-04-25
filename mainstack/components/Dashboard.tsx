@@ -208,6 +208,7 @@ const Dashboard = () => {
             ) : (
               <>
                 <p className="line-paragraph">All time</p>
+                <h1 className="line-num">500</h1>
 
                 <Line
                   data={chartData}

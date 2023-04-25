@@ -238,3 +238,8 @@ a {
 .line-paragraph {
   padding-left: 1rem;
 }
+
+.line-num {
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
