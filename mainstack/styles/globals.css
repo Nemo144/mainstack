@@ -95,6 +95,12 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@media only screen and (max-width: 768px) {
+  body {
+    overflow-x: scroll;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -109,7 +115,6 @@ a {
 .layout {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
 }
 
 .logo-sidebar {
@@ -317,4 +322,132 @@ a {
 .dough {
   margin-left: 5rem;
   transform: skew(0);
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  .logo-sidebar {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #eff1f6;
+    padding: 1rem;
+  }
+
+  .sidebar-list1 {
+    margin-top: 1rem;
+  }
+
+  .sidebar-owner {
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+
+  .owner-name {
+    margin: 0.5rem 0 0.2rem 0;
+  }
+
+  .owner-horiz {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .subContent {
+    margin-bottom: 1rem;
+    font-size: medium;
+  }
+
+  .firstTitle {
+    font-size: medium;
+  }
+
+  .nav {
+    padding-left: 1rem;
+  }
+
+  .dashboard-headers {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .dashboard-title {
+    font-size: medium;
+  }
+
+  .dashboard-subtitle {
+    font-size: small;
+  }
+
+  .chart {
+    height: 200px;
+  }
+}
+
+/* Media queries for tablet-sized devices */
+@media only screen and (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .logo-sidebar {
+    width: 16rem;
+    height: 100%;
+    border-right: 1px solid #eff1f6;
+    border-bottom: none;
+  }
+
+  .sidebar-list1 {
+    margin-top: 1rem;
+  }
+
+  .sidebar-owner {
+    padding-top: 2rem;
+  }
+
+  .nav {
+    padding-left: 2rem;
+  }
+}
+
+/* Media queries for desktop-sized devices */
+@media only screen and (min-width: 992px) {
+  .layout {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .logo-sidebar {
+    width: 18rem;
+    height: 100%;
+    border-right: 1px solid #eff1f6;
+    border-bottom: none;
+  }
+
+  .sidebar-list1 {
+    margin-top: 2rem;
+  }
+
+  .sidebar-owner {
+    padding-top: 5rem;
+  }
+
+  .nav {
+    padding-left: 3rem;
+  }
+}
+
+/* Media queries for large desktop-sized devices */
+@media only screen and (min-width: 1200px) {
+  .logo-sidebar {
+    width: 20rem;
+    height: 100%;
+  }
+
+  .sidebar-owner {
+    padding-top: 7rem;
+  }
+
+  .nav {
+    padding-left: 4rem;
+  }
 }
