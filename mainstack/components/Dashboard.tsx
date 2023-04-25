@@ -79,7 +79,10 @@ const Dashboard = () => {
         label: "Views",
         data: Object.values(graphData.views),
         fill: true,
-        borderColor: "rgb(75, 192, 192)",
+        borderColor: "#FF5403",
+        background:
+          "linear-gradient(180deg, rgba(247, 245, 244, 0.2) 0%, rgba(255, 84, 3, 0) 100%);",
+
         tension: 0.1,
       },
     ],
@@ -88,7 +91,7 @@ const Dashboard = () => {
   const chartOptions = {
     scales: {
       x: {
-        // type: "time",
+        type: "time",
         adapters: {
           date: {
             locale: enUS,
@@ -190,13 +193,13 @@ const Dashboard = () => {
             ))}
           </ul>
 
-          <div>
-            <h1>Data from API</h1>
+          <div className="line-graph">
+            <h1 className="line-word">Page Views</h1>
             {isLoading ? (
               <p>Loading...</p>
             ) : (
               <>
-                <h2>Line Chart</h2>
+                <p className="line-paragraph">All time</p>
 
                 <Line
                   data={chartData}

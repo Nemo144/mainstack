@@ -213,3 +213,17 @@ a {
 .day-span {
   margin: 0.61rem;
 }
+
+.line-graph {
+  border: 1px solid #eff1f6;
+  margin: 0.5rem;
+}
+
+.line-word {
+  padding-left: 1rem;
+  font-size: small;
+}
+
+.line-paragraph {
+  padding-left: 1rem;
+}
