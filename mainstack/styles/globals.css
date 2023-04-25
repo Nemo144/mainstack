@@ -383,7 +383,7 @@ a {
 }
 
 /* Media queries for tablet-sized devices */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   .layout {
     flex-direction: row;
     flex-wrap: wrap;
@@ -407,10 +407,10 @@ a {
   .nav {
     padding-left: 2rem;
   }
-}
+} */
 
 /* Media queries for desktop-sized devices */
-@media only screen and (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
   .layout {
     flex-direction: row;
     flex-wrap: wrap;
@@ -434,10 +434,10 @@ a {
   .nav {
     padding-left: 3rem;
   }
-}
+} */
 
 /* Media queries for large desktop-sized devices */
-@media only screen and (min-width: 1200px) {
+/* @media only screen and (min-width: 1200px) {
   .logo-sidebar {
     width: 20rem;
     height: 100%;
@@ -450,4 +450,4 @@ a {
   .nav {
     padding-left: 4rem;
   }
-}
+} */
