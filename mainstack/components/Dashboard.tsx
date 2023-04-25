@@ -195,6 +195,14 @@ const Dashboard = () => {
 
           <div className="line-graph">
             <h1 className="line-word">Page Views</h1>
+            <div className="line-img">
+              <Image
+                src={"/images/info.jpg"}
+                alt="info"
+                width={10}
+                height={10}
+              />
+            </div>
             {isLoading ? (
               <p>Loading...</p>
             ) : (
