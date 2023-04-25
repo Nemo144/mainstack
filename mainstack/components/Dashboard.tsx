@@ -276,7 +276,7 @@ const Dashboard = () => {
           <ul className="days">
             {days.map((day, index) => (
               <li className="days-list" key={index}>
-                <span className="day-span">{day}</span>
+                <span className={index === 4 ? "fourthTitle" : ""}>{day}</span>
               </li>
             ))}
           </ul>
