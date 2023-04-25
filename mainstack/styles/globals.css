@@ -120,6 +120,7 @@ a {
   padding: 1.5rem;
 
   border: 1px solid #eff1f6;
+  border-bottom: none;
   width: 16rem;
   height: 45rem;
 }
@@ -139,6 +140,22 @@ a {
 .sidebar-list2 {
   margin: 1rem;
   list-style: none;
+}
+
+.sidebar-owner {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1rem;
+  padding-top: 5rem;
+}
+
+.owner-name {
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.owner-horiz {
+  margin-left: auto;
 }
 
 .image-title {
@@ -242,4 +259,23 @@ a {
 .line-num {
   padding-left: 1rem;
   padding-top: 1rem;
+}
+
+.graph-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #eff1f6;
+  width: 39rem;
+  margin-left: 0.5rem;
+}
+
+.doughnut-graph1 {
+  width: 15rem;
+  height: 20rem;
+}
+
+.doughnut-graph2 {
+  width: 15rem;
+  height: 20rem;
+  margin-left: auto;
 }

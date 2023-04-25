@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Line } from "react-chartjs-2";
+import { Line, Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 // import { Chart as ChartJS } from "chart.js/auto";
 import "chartjs-adapter-date-fns";
@@ -54,6 +54,12 @@ const Dashboard = () => {
   //state to manage our the line graph data from the API
   const [graphData, setGraphData] = useState({ views: {} });
 
+  //state to manage the doughnut-graph top-location data from the API
+  const [topLocations, setTopLocations] = useState([]);
+
+  //state to manage the doughnut-graph top-sources data from the API
+  const [topSources, setTopSources] = useState([]);
+
   //state to show indicate the loading state of the graph
   const [isLoading, setIsLoading] = useState(true);
 
@@ -72,6 +78,27 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
+  //effect hook to fetch the top-location data from the API
+  useEffect(() => {
+    async function fetchLocationData() {
+      const res = await fetch("https://fe-task-api.mainstack.io/");
+      const data = await res.json();
+      setTopLocations(data.top_locations);
+    }
+    fetchLocationData();
+  }, []);
+
+  //effect hook to fetch the top-sources data from the API
+  useEffect(() => {
+    async function fetchSourcesData() {
+      const res = await fetch("https://fe-task-api.mainstack.io/");
+      const data = await res.json();
+      setTopSources(data.top_sources);
+    }
+    fetchSourcesData();
+  }, []);
+
+  //chart data for our line graph
   const chartData = {
     labels: Object.keys(graphData.views),
     datasets: [
@@ -88,6 +115,37 @@ const Dashboard = () => {
     ],
   };
 
+  //chart data for our top-location doughnut graph
+  const chartLocationsData = {
+    labels: topLocations?.map((loc: { country: any }) => loc.country) || [],
+    datasets: [
+      {
+        data: topLocations?.map((loc: { count: any }) => loc.count) || [],
+        backgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+          "#4BC0C0",
+          "#9966FF",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  //chart data for our top-sources doughnut graph
+  const chartSourcesData = {
+    labels: topSources.map((source: { source: any }) => source.source),
+    datasets: [
+      {
+        data: topSources.map((source: { count: any }) => source.count),
+        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#1abc9c"],
+        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#1abc9c"],
+      },
+    ],
+  };
+
+  //chart options for our line graph
   const chartOptions = {
     scales: {
       x: {
@@ -113,6 +171,24 @@ const Dashboard = () => {
           display: true,
           text: "Views",
         },
+      },
+    },
+  };
+
+  //chart options for our top-locations doughnut graph
+  const chartLocationsOptions = {
+    plugins: {
+      legend: {
+        position: "left",
+      },
+    },
+  };
+
+  //chart options for our top-sources doughnut graph
+  const chartSourcesOptions = {
+    plugins: {
+      legend: {
+        position: "left",
       },
     },
   };
@@ -168,6 +244,18 @@ const Dashboard = () => {
                 </li>
               ))}
             </ul>
+
+            <div className="sidebar-owner">
+              <Image
+                priority
+                src={"/images/image.jpg"}
+                alt="blessing"
+                width={20}
+                height={20}
+              />
+              <h6 className="owner-name">Blessing Daniels</h6>
+              <p className="owner-horiz">...</p>
+            </div>
           </div>
         </div>
 
@@ -217,6 +305,19 @@ const Dashboard = () => {
                 />
               </>
             )}
+          </div>
+
+          <div className="graph-container">
+            <div className="doughnut-graph1">
+              <Doughnut
+                options={chartLocationsOptions}
+                data={chartLocationsData}
+              />
+            </div>
+
+            <div className="doughnut-graph2">
+              <Doughnut options={chartSourcesOptions} data={chartSourcesData} />
+            </div>
           </div>
         </div>
       </div>
