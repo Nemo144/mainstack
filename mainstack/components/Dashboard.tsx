@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { Line } from "react-chartjs-2";
+import "chart.js/auto";
+// import { Chart as ChartJS } from "chart.js/auto";
+import "chartjs-adapter-date-fns";
+import { enUS } from "date-fns/locale";
 
 //sidebar elements in arrays to enable mapping function in JSX
 const sidebar = [
@@ -46,19 +51,69 @@ const days = [
 ];
 
 const Dashboard = () => {
-  //state to manage our data from the API
-  const [data, setData] = useState([]);
+  //state to manage our the line graph data from the API
+  const [graphData, setGraphData] = useState({ views: {} });
 
-  //effect hook to fetch the data from the API
+  //state to show indicate the loading state of the graph
+  const [isLoading, setIsLoading] = useState(true);
+
+  //effect hook to fetch the line graph data from the API
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("https://fe-task-api.mainstack.io/");
-      const data = await response.json();
-      setData(data);
-      console.log(data);
+      try {
+        const response = await fetch("https://fe-task-api.mainstack.io/");
+        const data = await response.json();
+        setGraphData(data.graph_data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
     }
     fetchData();
   }, []);
+
+  const chartData = {
+    labels: Object.keys(graphData.views),
+    datasets: [
+      {
+        label: "Views",
+        data: Object.values(graphData.views),
+        fill: true,
+        borderColor: "rgb(75, 192, 192)",
+        tension: 0.1,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    scales: {
+      x: {
+        // type: "time",
+        adapters: {
+          date: {
+            locale: enUS,
+          },
+        },
+        time: {
+          unit: "day",
+          displayFormats: {
+            day: "MMM d",
+          },
+        },
+        title: {
+          display: true,
+          text: "Date",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Views",
+        },
+      },
+    },
+  };
+
   return (
     <div>
       <div className="layout">
@@ -134,6 +189,23 @@ const Dashboard = () => {
               </li>
             ))}
           </ul>
+
+          <div>
+            <h1>Data from API</h1>
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              <>
+                <h2>Line Chart</h2>
+
+                <Line
+                  data={chartData}
+                  options={chartOptions}
+                  key={JSON.stringify(graphData.views)}
+                />
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
