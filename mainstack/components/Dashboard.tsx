@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 //sidebar elements in arrays to enable mapping function in JSX
@@ -46,6 +46,19 @@ const days = [
 ];
 
 const Dashboard = () => {
+  //state to manage our data from the API
+  const [data, setData] = useState([]);
+
+  //effect hook to fetch the data from the API
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("https://fe-task-api.mainstack.io/");
+      const data = await response.json();
+      setData(data);
+      console.log(data);
+    }
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="layout">
