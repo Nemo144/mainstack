@@ -176,7 +176,7 @@ const Dashboard = () => {
   };
 
   //chart options for our top-locations doughnut graph
-  const chartLocationsOptions = {
+  const chartLocationsOptions: ChartOptions<"doughnut"> = {
     plugins: {
       legend: {
         position: "left",
@@ -185,7 +185,7 @@ const Dashboard = () => {
   };
 
   //chart options for our top-sources doughnut graph
-  const chartSourcesOptions = {
+  const chartSourcesOptions: ChartOptions<"doughnut"> = {
     plugins: {
       legend: {
         position: "left",
