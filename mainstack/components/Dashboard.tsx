@@ -4,7 +4,7 @@ import { Line, Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 import "chartjs-adapter-date-fns";
 import { enUS } from "date-fns/locale";
-import { Chart, ChartType, ChartConfiguration, ChartOptions } from "chart.js";
+import { ChartOptions } from "chart.js";
 
 //sidebar elements in arrays to enable mapping function in JSX
 const sidebar = [
