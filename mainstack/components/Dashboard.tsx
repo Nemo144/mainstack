@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Line, Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
-// import { Chart as ChartJS } from "chart.js/auto";
 import "chartjs-adapter-date-fns";
 import { enUS } from "date-fns/locale";
 
