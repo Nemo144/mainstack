@@ -4,7 +4,7 @@ import { Line, Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 import "chartjs-adapter-date-fns";
 import { enUS } from "date-fns/locale";
-import { Chart, ChartType } from "chart.js";
+import { Chart, ChartType, ChartConfiguration, ChartOptions } from "chart.js";
 
 //sidebar elements in arrays to enable mapping function in JSX
 const sidebar = [
@@ -146,10 +146,10 @@ const Dashboard = () => {
   };
 
   //chart options for our line graph
-  const chartOptions = {
+  const chartOptions: ChartOptions<"line"> = {
     scales: {
       x: {
-        // type: "time" as ChartType,
+        type: "timeseries",
         adapters: {
           date: {
             locale: enUS,
