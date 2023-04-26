@@ -302,6 +302,7 @@ const Dashboard = () => {
                     data={chartData}
                     options={chartOptions}
                     key={JSON.stringify(graphData.views)}
+                    className="line-data"
                   />
                 </div>
               </>
